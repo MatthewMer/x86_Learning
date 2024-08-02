@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6cbafc38-a0d2-4015-8fbb-43e10620bab3}</ProjectGuid>
-    <RootNamespace>CallingConventions</RootNamespace>
+    <ProjectGuid>{57bb3381-f3a0-4697-9a09-8d13cc951a6f}</ProjectGuid>
+    <RootNamespace>MemoryAddressing</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -128,12 +128,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CallingConventions.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <MASM Include="CalculateSum.asm">
-      <FileType>Document</FileType>
+    <MASM Include="AddressingDemo.asm">
+      <FileType>CppCode</FileType>
     </MASM>
+    <ClCompile Include="MemoryAddressing.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

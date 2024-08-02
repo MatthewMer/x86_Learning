@@ -10,16 +10,16 @@ void check(int a, int b, int* prod, int* quo, int* rem);
 
 int main()
 {
-    int* prod = new int;
-    int* quo = new int;
-    int* rem = new int;
+    int* res = new int[3];
 
     int a = 6;
     int b = 0;
-    check(a, b, prod, quo, rem);
+    check(a, b, res, res + 1, res + 2);
 
     b = 5;
-    check(a, b, prod, quo, rem);
+    check(a, b, res, res + 1, res + 2);
+
+    delete[] res;
 }
 
 void check(int a, int b, int* prod, int* quo, int* rem) {

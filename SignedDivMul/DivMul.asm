@@ -37,12 +37,7 @@ IntegerMulDiv proc
 
 	mov eax,1
 
-	jmp Success
-
 InvalidDivisor:
-	mov eax,0
-
-Success:
 	pop ebx
 	pop ebp
 
