@@ -24,39 +24,34 @@ AddressingDemo proc
 	cmp ecx,[NumFibVals]
 	jge InvalidIndex
 
+	mov edi,[ebp+12]		; address v
+
 ; result 1 - base register
 	mov ebx,OFFSET FibVals	; base offset
 	mov esi,[ebp+8]			; passed index i
 	shl esi,2				; i*4 -> offset in bytes
 	add ebx,esi				; address at index
 	mov eax,[ebx]			; get value
-	mov edi,[ebp+12]		; address v1
 	mov [edi],eax			; store result
 
 ; result 2 - base register + displacement
 	mov esi,[ebp+8]			; passed index i
 	shl esi,2				; i*4
 	mov eax,[esi+FibVals]	; value at offset FibVals + i*4
-	mov edi,[ebp+12]		; address v2
-	add edi,4
-	mov [edi],eax			; store result
+	mov [edi+4],eax			; store result
 
 ; result 3 - base register + index register
 	mov ebx,OFFSET FibVals	; base offset
 	mov esi,[ebp+8]			; passed index i
 	shl esi,2				; i*4
 	mov eax,[ebx+esi]		; base offset + index reg
-	mov edi,[ebp+12]		; address v3
-	add edi,8
-	mov [edi],eax			; store result
+	mov [edi+8],eax			; store result
 
 ; result 4 - base register + index register * scale factor
 	mov ebx,OFFSET FibVals	; base offset
 	mov esi,[ebp+8]			; passed index i
 	mov eax,[ebx+esi*4]		; base offset + index reg * scale factor
-	mov edi,[ebp+12]		; address v4
-	add edi,12
-	mov [edi],eax			; store result
+	mov [edi+12],eax		; store result
 
 	mov eax,1
 
