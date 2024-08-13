@@ -3,27 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Intro", "Intro\Intro.vcxproj", "{C931CDCD-33B1-429B-8717-BDBEBEB63E9C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_Intro", "01_Intro\01_Intro.vcxproj", "{C931CDCD-33B1-429B-8717-BDBEBEB63E9C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BackwardsCompat", "BackwardsCompat\BackwardsCompat.vcxproj", "{1FDD7C32-995F-4257-835A-9327C36E5AD4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_BackwardsCompat", "02_BackwardsCompat\02_BackwardsCompat.vcxproj", "{1FDD7C32-995F-4257-835A-9327C36E5AD4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Variables", "Variables\Variables.vcxproj", "{D5BB2834-AE01-4302-8FEF-0A88932B2411}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_Variables", "03_Variables\03_Variables.vcxproj", "{D5BB2834-AE01-4302-8FEF-0A88932B2411}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppEmbeddedIntro", "CppEmbeddedIntro\CppEmbeddedIntro.vcxproj", "{EEA37422-97A7-4C9E-ACC3-26C57104DE54}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_CppEmbeddedIntro", "04_CppEmbeddedIntro\04_CppEmbeddedIntro.vcxproj", "{EEA37422-97A7-4C9E-ACC3-26C57104DE54}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArraySum", "ArraySum\ArraySum.vcxproj", "{1C0B999B-557E-47FD-9ACE-A6E038720B95}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_ArraySum", "05_ArraySum\05_ArraySum.vcxproj", "{1C0B999B-557E-47FD-9ACE-A6E038720B95}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArrayScan", "ArrayScan\ArrayScan.vcxproj", "{C4EFF39A-21E3-4274-8849-5231CD6525F5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_ArrayScan", "06_ArrayScan\06_ArrayScan.vcxproj", "{C4EFF39A-21E3-4274-8849-5231CD6525F5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PointersAndTypeDef", "PointersAndTypeDef\PointersAndTypeDef.vcxproj", "{EB190AD3-5F72-4C9E-B09D-5578BE01D5C6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07_PointersAndTypeDef", "07_PointersAndTypeDef\07_PointersAndTypeDef.vcxproj", "{EB190AD3-5F72-4C9E-B09D-5578BE01D5C6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CalculateSum", "CalculateSum\CalculateSum.vcxproj", "{01B3B894-7520-4991-8F74-BA24FE3BE1F9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "08_CalculateSum", "08_CalculateSum\08_CalculateSum.vcxproj", "{01B3B894-7520-4991-8F74-BA24FE3BE1F9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SignedDivMul", "SignedDivMul\SignedDivMul.vcxproj", "{9C6C5EFF-A44E-4363-A2A4-F0F328D51B8A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "09_SignedDivMul", "09_SignedDivMul\09_SignedDivMul.vcxproj", "{9C6C5EFF-A44E-4363-A2A4-F0F328D51B8A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CallingConventions", "CallingConventions\CallingConventions.vcxproj", "{6CBAFC38-A0D2-4015-8FBB-43E10620BAB3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "10_CallingConventions", "10_CallingConventions\10_CallingConventions.vcxproj", "{6CBAFC38-A0D2-4015-8FBB-43E10620BAB3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MemoryAddressing", "MemoryAddressing\MemoryAddressing.vcxproj", "{57BB3381-F3A0-4697-9A09-8D13CC951A6F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "11_MemoryAddressing", "11_MemoryAddressing\11_MemoryAddressing.vcxproj", "{57BB3381-F3A0-4697-9A09-8D13CC951A6F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "12_GlobalVariables", "12_GlobalVariables\12_GlobalVariables.vcxproj", "{370D7A38-F7F0-4D5F-9F60-A7033E319F77}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "13_Conditionals", "13_Conditionals\13_Conditionals.vcxproj", "{500A9C22-1C87-451F-BDEF-E84CFEB83609}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -213,6 +217,38 @@ Global
 		{57BB3381-F3A0-4697-9A09-8D13CC951A6F}.Release|x64.Build.0 = Release|x64
 		{57BB3381-F3A0-4697-9A09-8D13CC951A6F}.Release|x86.ActiveCfg = Release|Win32
 		{57BB3381-F3A0-4697-9A09-8D13CC951A6F}.Release|x86.Build.0 = Release|Win32
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Debug|ARM.ActiveCfg = Debug|x64
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Debug|ARM.Build.0 = Debug|x64
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Debug|ARM64.ActiveCfg = Debug|x64
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Debug|ARM64.Build.0 = Debug|x64
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Debug|x64.ActiveCfg = Debug|x64
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Debug|x64.Build.0 = Debug|x64
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Debug|x86.ActiveCfg = Debug|Win32
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Debug|x86.Build.0 = Debug|Win32
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Release|ARM.ActiveCfg = Release|x64
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Release|ARM.Build.0 = Release|x64
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Release|ARM64.ActiveCfg = Release|x64
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Release|ARM64.Build.0 = Release|x64
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Release|x64.ActiveCfg = Release|x64
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Release|x64.Build.0 = Release|x64
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Release|x86.ActiveCfg = Release|Win32
+		{370D7A38-F7F0-4D5F-9F60-A7033E319F77}.Release|x86.Build.0 = Release|Win32
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Debug|ARM.ActiveCfg = Debug|x64
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Debug|ARM.Build.0 = Debug|x64
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Debug|ARM64.ActiveCfg = Debug|x64
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Debug|ARM64.Build.0 = Debug|x64
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Debug|x64.ActiveCfg = Debug|x64
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Debug|x64.Build.0 = Debug|x64
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Debug|x86.ActiveCfg = Debug|Win32
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Debug|x86.Build.0 = Debug|Win32
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Release|ARM.ActiveCfg = Release|x64
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Release|ARM.Build.0 = Release|x64
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Release|ARM64.ActiveCfg = Release|x64
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Release|ARM64.Build.0 = Release|x64
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Release|x64.ActiveCfg = Release|x64
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Release|x64.Build.0 = Release|x64
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Release|x86.ActiveCfg = Release|Win32
+		{500A9C22-1C87-451F-BDEF-E84CFEB83609}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
