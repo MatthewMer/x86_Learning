@@ -12,9 +12,9 @@ CalcArraySumASM		proc
 	cmp ecx,0
 	jle InvalidSize
 
-@@:	add eax,[edx]
-	add edx,4
-	dec ecx
+@@:	add eax,[edx]		; next element
+	add edx,4			; increment address
+	dec ecx				; adjust counter
 	jnz @B				; backwards next @@ label
 
 InvalidSize:

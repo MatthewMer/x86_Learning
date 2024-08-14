@@ -2,47 +2,53 @@
 #include <random>
 using std::cout;
 
-typedef int(__cdecl* sumFn)(int*, int);
-
 extern "C" int CalcArraySumASM(int* x, int n);
 int CalcArraySumCPP(int* x, int n);
 
-void GenerateArray(int** x, int n);
-void CalcAndPrint(sumFn fnPtr, int* x, int n);
-
 const int ARR_SIZE = 10;
 
-int main() {
-	int* arr;
-	GenerateArray(&arr, ARR_SIZE);
+class Array {
+public:
+	Array() = delete;
+	Array(int n) {
+		size = n;
+		arr = new int[size];
 
-	cout << "CPP: ";
-	CalcAndPrint(&CalcArraySumCPP, arr, ARR_SIZE);
-	cout << "ASM: ";
-	CalcAndPrint(&CalcArraySumASM, arr, ARR_SIZE);
-
-	delete[] arr;
-}
-
-void GenerateArray(int** x, int n) {
-	*x = new int[ARR_SIZE];
-	srand(42);
-
-	for (int i = 0; i < ARR_SIZE; ++i) {
-		(*x)[i] = rand() % 10;
-	}
-}
-
-void CalcAndPrint(sumFn fnPtr, int* x, int n) {
-	int res = (*fnPtr)(x, n);
-
-	for (int i = 0; i < n; ++i) {
-		cout << x[i];
-		if (i != n - 1) {
-			cout << " + ";
+		srand(42);
+		for (int i = 0; i < size; ++i) {
+			arr[i] = rand() % 10;
 		}
 	}
-	cout << " = " << res << "\n";
+	~Array() {
+		delete[] arr;
+	}
+
+	typedef int(__cdecl* sumFn)(int*, int);
+	void CalcAndPrint(const char* name, sumFn fnPtr) {
+		int res = (*fnPtr)(arr, size);
+
+		cout << name << ": ";
+		for (int i = 0; i < size; ++i) {
+			cout << arr[i];
+			if (i != size - 1) {
+				cout << " + ";
+			}
+		}
+		cout << " = " << res << "\n";
+	}
+
+private:
+	int* arr;
+	int size;
+};
+
+int main() {
+	Array arr(ARR_SIZE);
+
+	arr.CalcAndPrint("CPP", &CalcArraySumCPP);
+	arr.CalcAndPrint("ASM", &CalcArraySumASM);
+
+	return 0;
 }
 
 int CalcArraySumCPP(int* x, int n) {
