@@ -3,7 +3,8 @@
 using std::cout;
 using std::endl;
 
-void CalcArrayCubeCPP(const int* x, int* y, int nrows, int ncols);
+int CalcArrayCubeCPP(const int* x, int* y, int nrows, int ncols);
+extern "C" int CalcArrayCubeASM(const int* x, int* y, int nrows, int ncols);
 
 template <int TROWS, int TCOLS>
 class Array2D {
@@ -18,9 +19,9 @@ public:
 		}
 	}
 
-	typedef void(__cdecl* calcFn)(const int*, int*, int, int);
+	typedef int(__cdecl* calcFn)(const int*, int*, int, int);
 	void CalcAndPrint(const char* name, calcFn fnPtr) {
-		fnPtr(&x[0][0], &y[0][0], TROWS, TCOLS);
+		int sum = fnPtr(static_cast<int const*>(&x[0][0]), &y[0][0], TROWS, TCOLS);
 
 		cout << name << ":\n";
 		cout << "input:\n";
@@ -28,15 +29,16 @@ public:
 			for (int j = 0; j < TCOLS; ++j) {
 				cout << "\t" << x[i][j];
 			}
-			cout << endl;
+			cout << "\n";
 		}
 		cout << "cubes:\n";
 		for (int i = 0; i < TROWS; ++i) {
 			for (int j = 0; j < TCOLS; ++j) {
 				cout << "\t" << y[i][j];
 			}
-			cout << endl;
+			cout << "\n";
 		}
+		cout << "\tSum: " << sum << "\n";
 	}
 
 private:
@@ -50,15 +52,20 @@ const int NCOLS = 10;
 int main() {
 	Array2D<NROWS, NCOLS> arr2d;
 	arr2d.CalcAndPrint("CPP", &CalcArrayCubeCPP);
+	cout << "\n";
+	arr2d.CalcAndPrint("ASM", &CalcArrayCubeASM);
 
 	return 0;
 }
 
-void CalcArrayCubeCPP(const int* x, int* y, int nrows, int mcols) {
+int CalcArrayCubeCPP(const int* x, int* y, int nrows, int mcols) {
+	int sum = 0;
 	for (int i = 0; i < nrows; ++i) {
 		for (int j = 0; j < mcols; ++j) {
 			int k = i * mcols + j;
 			y[k] = x[k] * x[k] * x[k];
+			sum += y[k];
 		}
 	}
+	return sum;
 }

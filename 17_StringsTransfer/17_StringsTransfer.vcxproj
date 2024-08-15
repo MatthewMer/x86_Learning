@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1f334d86-b302-468c-9f0d-7f72e11c3d27}</ProjectGuid>
-    <RootNamespace>My162dArrays</RootNamespace>
+    <ProjectGuid>{aef80de5-44eb-4715-8608-634e509cefd6}</ProjectGuid>
+    <RootNamespace>My17StringsTransfer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -128,10 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <MASM Include="cubes.asm">
+    <MASM Include="main.asm">
       <FileType>Document</FileType>
     </MASM>
   </ItemGroup>

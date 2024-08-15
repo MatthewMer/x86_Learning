@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="cubes.asm">
+    <MASM Include="string.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>
