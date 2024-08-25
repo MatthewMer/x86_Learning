@@ -7,9 +7,10 @@ CalcMeanStdevASM	proc
 	push ebx
 	push esi
 
+	xor eax,eax
 	mov ecx,[ebp+12]	; count
 	cmp ecx,1
-	jle Error
+	jle Done
 	
 	mov ebx,[ebp+8]		; src
 	xor esi,esi
@@ -51,10 +52,6 @@ CalcMeanStdevASM	proc
 	fstp st(0)
 
 	mov eax,1
-	jmp Done
-
-Error:
-	xor eax,eax
 
 Done:
 	pop esi
