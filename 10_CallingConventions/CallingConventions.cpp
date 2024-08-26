@@ -6,6 +6,9 @@
 #include <cassert>
 #include <random>
 
+// comment ASM_CALL define to run the highlevel calls -> compiler will generate basically the same functionality
+#define ASM_CALL
+
 using std::cout;
 
 typedef void(__cdecl* callee_cdecl)(int const, int const, int const, int*);
@@ -38,10 +41,15 @@ public:
 
     template<typename Tfn>
     void CalcAndPrint(char const* name, caller<Tfn> caller, Tfn callee) {
-        std::fill(res, res + 3, 0);
-        caller(callee, a, b, c, res);
+        ClearRes();
 
-        print(name, res);
+        #ifdef ASM_CALL
+        caller(callee, a, b, c, res);
+        #else
+        callee(a, b, c, res);
+        #endif
+
+        PrintRes(name);
     }
 
     // __thiscall:
@@ -49,23 +57,27 @@ public:
     //	    -pushes remaining arguments in reverse order onto the stack
     //      ->callee manages arguments on stack
     void CalcAndPrintThis() {
-        std::fill(res, res + 3, 0);
+        ClearRes();
+
+        // inline asm basically is the same as calling the member method
+        #ifdef ASM_CALL
         _asm {
             mov ecx, this
             call dword ptr[CalculateSum_thiscall]
         }
+        #else
+        CalculateSum_thiscall();
+        #endif
 
-        print("__thiscall", res);
+        PrintRes("__thiscall");
     }
 
     void __thiscall CalculateSum_thiscall();
 
-    /*
-    T const& get(size_t const& index) {
+    T const& Get(size_t const& index) {
         assert(0 <= index && index < sizeof(res) / sizeof(res[0]));
         return res[index];
     }
-    */
 
 private:
     T a = 1;
@@ -73,12 +85,16 @@ private:
     T c = 3;
     T res[3] = { 0,0,0 };
 
-    void print(char const* name, T const* res) {
+    void PrintRes(char const* name) {
         cout << name << ":\n";
         cout << "\ta=" << a << "; b=" << b << "; c=" << c << "\n";
-        cout << "\ta + b + c = " << *res << "\n";
-        cout << "\tpow(a,2) + pow(b,2) + pow(c,2) = " << *(res + 1) << "\n";
-        cout << "\tpow(a,3) + pow(b,3) + pow(c,3) = " << *(res + 2) << "\n";
+        cout << "\ta + b + c = "                      << Get(0) << "\n";
+        cout << "\tpow(a,2) + pow(b,2) + pow(c,2) = " << Get(1) << "\n";
+        cout << "\tpow(a,3) + pow(b,3) + pow(c,3) = " << Get(2) << "\n";
+    }
+
+    constexpr void ClearRes() {
+        std::fill(res, res + 3, 0);
     }
 };
 
