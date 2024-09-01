@@ -96,7 +96,9 @@ public:
 				cout << std::string(space, row == 0 ? '-' : ' ');
 			}
 			cout << "\n";
+			delete[] dots[row - min];
 		}
+		delete[] dots;
 	}
 
 	void printLinearRegression() {
