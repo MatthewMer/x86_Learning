@@ -1,5 +1,5 @@
 #include <type_traits>
-
+#include "pch.h"
 #include "MmxVal.h"
 
 namespace MMX {
@@ -14,7 +14,7 @@ namespace MMX {
 
 	string_t Mmx::ToString_i8() const {
 		string_t res = "";
-		for (size_t i = INT8_MAX_INDEX; i != -1; --i) {
+		for (size_t i = INT8_MAX_INDEX; i < -1; --i) {
 			res += to_string(i8[i]);
 			res += "\t";
 		}
@@ -23,7 +23,7 @@ namespace MMX {
 
 	string_t Mmx::ToString_i16() const {
 		string_t res = "";
-		for (size_t i = INT16_MAX_INDEX; i != -1; --i) {
+		for (size_t i = INT16_MAX_INDEX; i < -1; --i) {
 			res += to_string(i16[i]);
 			res += "\t";
 		}
@@ -32,7 +32,7 @@ namespace MMX {
 
 	string_t Mmx::ToString_i32() const {
 		string_t res = "";
-		for (size_t i = INT32_MAX_INDEX; i != -1; --i) {
+		for (size_t i = INT32_MAX_INDEX; i < -1; --i) {
 			res += to_string(i32[i]);
 			res += "\t";
 		}
@@ -41,7 +41,7 @@ namespace MMX {
 
 	string_t Mmx::ToString_u8() const {
 		string_t res = "";
-		for (size_t i = INT8_MAX_INDEX; i != -1; --i) {
+		for (size_t i = INT8_MAX_INDEX; i < -1; --i) {
 			res += to_string(u8[i]);
 			res += "\t";
 		}
@@ -50,7 +50,7 @@ namespace MMX {
 
 	string_t Mmx::ToString_u16() const {
 		string_t res = "";
-		for (size_t i = INT16_MAX_INDEX; i != -1; --i) {
+		for (size_t i = INT16_MAX_INDEX; i < -1; --i) {
 			res += to_string(u16[i]);
 			res += "\t";
 		}
@@ -59,7 +59,7 @@ namespace MMX {
 
 	string_t Mmx::ToString_u32() const {
 		string_t res = "";
-		for (size_t i = INT32_MAX_INDEX; i != -1; --i) {
+		for (size_t i = INT32_MAX_INDEX; i < -1; --i) {
 			res += to_string(u32[i]);
 			res += "\t";
 		}

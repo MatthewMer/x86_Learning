@@ -26,6 +26,17 @@ namespace MMX {
 		paddq			// packed qword add wraparound
 	};
 
+	enum MmxSubOp : uint32 {
+		psubb,			// packed byte sub wraparound
+		psubsb,			// packed byte sub signed saturation
+		psubusb,		// packed byte sub unsigned saturation
+		psubw,			// packed word sub wraparound
+		psubsw,			// packed word sub signed saturation
+		psubusw,		// packed word sub unsigned saturation
+		psubd,			// packed dword sub wraparound
+		psubq			// packed qword sub wraparound
+	};
+
 	struct Mmx {
 		union {
 			// 64 bit per MMX register (x86)
@@ -55,5 +66,8 @@ namespace MMX {
 		_NODISCARD string_t ToString_u16(size_t const& i) const;
 		_NODISCARD string_t ToString_u32(size_t const& i) const;
 		_NODISCARD string_t ToString_u64() const;
+
+		Mmx& MmxAdd(Mmx b, MmxAddOp op);
+		Mmx& MmxSub(Mmx b, MmxSubOp op);
 	};
 }
