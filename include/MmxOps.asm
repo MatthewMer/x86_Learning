@@ -196,7 +196,7 @@ MmxPsrad:
 	psrad mm0,mm1
 	jmp StoreResult
 
-MmxPsraq:
+;MmxPsraq:
 	;psraq mm0,mm1
 	jmp StoreResult
 
@@ -221,7 +221,7 @@ StoreResult:
 ShiftOpTable:
 	dword MmxPsllw, MmxPslld, MmxPsllq
 	dword MmxPsrlw, MmxPsrld, MmxPsrlq
-	dword MmxPsraw, MmxPsrad, MmxPsraq
+	dword MmxPsraw, MmxPsrad;, MmxPsraq
 
 ShiftOpTableCount equ ($-ShiftOpTable) / size dword
 MmxShift	endp

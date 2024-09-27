@@ -48,7 +48,7 @@ namespace MMX {
 		//psrldq,			// packed shift right logical doublequadword
 		psraw,			// packed shift right arithmetic word
 		psrad,			// packed shift right arithmetic doubleword
-		psraq,			// packed shift right arithmetic quadword
+		//psraq,			// packed shift right arithmetic quadword
 		//psradq			// packed shift right arithmetic doublequadword
 	};
 
