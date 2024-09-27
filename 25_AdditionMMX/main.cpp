@@ -25,7 +25,7 @@ int main() {
 	cout << "saturated unsigned byte SIMD subtraction:\n";
 	cout << "a:\t" << a.ToString_u8() << "\n";
 	cout << "b:\t" << b.ToString_u8() << "\n";
-	cout << "a + b:\t" << a.MmxSub(b, MMX::psubusb).ToString_u8() << "\n";
+	cout << "a - b:\t" << a.MmxSub(b, MMX::psubusb).ToString_u8() << "\n";
 
 	a = MMX::Mmx{ .u64 = MMX_VALUE << 1 };
 	cout << "wraparound unsigned byte SIMD subtraction:\n";

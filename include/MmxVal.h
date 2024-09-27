@@ -37,6 +37,21 @@ namespace MMX {
 		psubq			// packed qword sub wraparound
 	};
 
+	enum MmxShiftOp : uint32 {
+		psllw,			// packed shift left logical word
+		pslld,			// packed shift left logical doubleword
+		psllq,			// packed shift left logical quadword
+		//pslldq,			// packed shift left logical doublequadword
+		psrlw,			// packed shift right logical word
+		psrld,			// packed shift right logical doubleword
+		psrlq,			// packed shift right logical quadword
+		//psrldq,			// packed shift right logical doublequadword
+		psraw,			// packed shift right arithmetic word
+		psrad,			// packed shift right arithmetic doubleword
+		psraq,			// packed shift right arithmetic quadword
+		//psradq			// packed shift right arithmetic doublequadword
+	};
+
 	struct Mmx {
 		union {
 			// 64 bit per MMX register (x86)
@@ -67,7 +82,8 @@ namespace MMX {
 		_NODISCARD string_t ToString_u32(size_t const& i) const;
 		_NODISCARD string_t ToString_u64() const;
 
-		Mmx& MmxAdd(Mmx b, MmxAddOp op);
-		Mmx& MmxSub(Mmx b, MmxSubOp op);
+		Mmx& MmxAdd(Mmx const& b, MmxAddOp op);
+		Mmx& MmxSub(Mmx const& b, MmxSubOp op);
+		Mmx& MmxShift(uint32 const& num, MmxShiftOp op);
 	};
 }
