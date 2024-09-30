@@ -85,5 +85,6 @@ namespace MMX {
 		Mmx& MmxAdd(Mmx const& b, MmxAddOp op);
 		Mmx& MmxSub(Mmx const& b, MmxSubOp op);
 		Mmx& MmxShift(uint32 const& num, MmxShiftOp op);
+		Mmx* MmxMultiply(Mmx const& b);
 	};
 }

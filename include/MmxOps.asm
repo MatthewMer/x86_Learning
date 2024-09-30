@@ -1,5 +1,8 @@
 .model flat,c
 
+.data
+extern malloc: proc
+
 .code
 
 OPTION LANGUAGE: syscall		; name mangling (no C symbols) -> Cpp compiler
@@ -198,7 +201,7 @@ MmxPsrad:
 
 ;MmxPsraq:
 	;psraq mm0,mm1
-	jmp StoreResult
+	;jmp StoreResult
 
 
 BadShiftOp:
@@ -225,6 +228,41 @@ ShiftOpTable:
 
 ShiftOpTableCount equ ($-ShiftOpTable) / size dword
 MmxShift	endp
+
+MmxMultiply equ <?MmxMultiply@Mmx@MMX@@QAEPAU12@ABU12@@Z>
+MmxMultiply	proc
+	push ebp
+	mov ebp,esp
+
+	push ecx
+	mov ecx,10h
+	call malloc					; heap alloc 16 bytes (syscall to os)
+	pop ecx
+	test eax,eax
+	jz Failed
+
+	movq mm0,[ecx]				; load a
+	mov edx,[ebp+8]
+	movq mm1,[edx]				; load b
+
+	movq mm2,mm0
+	pmullw mm0,mm1				; prod low
+	pmulhw mm1,mm2				; prod high
+
+	movq mm2,mm0
+	punpcklwd mm0,mm1			; mm0 low
+	punpckhwd mm2,mm1			; mm2 high
+
+	movq [eax],mm0
+	movq [eax+8],mm2
+
+Failed:
+	emms						; clear mmx state
+
+	pop ebp
+	ret 4
+
+MmxMultiply	endp
 
 OPTION LANGUAGE: C
 end
