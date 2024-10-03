@@ -55,12 +55,12 @@ public:
 	};
 
 	SseVal& SseAdd(SseVal const& val, AddOp const op);
-	//SseVal& SseSub(SseVal const& val, SubOp const op);
-	//SseVal& SseMul(SseVal const& val, MulOp const op);
-	//SseVal& SseDiv(SseVal const& val, DivOp const op);
-	//SseVal& SseMin(SseVal const& val, MinOp const op);
-	//SseVal& SseMax(SseVal const& val, MaxOp const op);
-	//SseVal& SseSqrt(SqrtOp const op);
+	SseVal& SseSub(SseVal const& val, SubOp const op);
+	SseVal& SseMul(SseVal const& val, MulOp const op);
+	SseVal& SseDiv(SseVal const& val, DivOp const op);
+	SseVal& SseMin(SseVal const& val, MinOp const op);
+	SseVal& SseMax(SseVal const& val, MaxOp const op);
+	SseVal& SseSqrt(SqrtOp const op);
 
 	// SSE2
 	union {
