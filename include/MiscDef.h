@@ -1,5 +1,8 @@
 #pragma once
 
+typedef float				float32;
+typedef double				double64;
+
 typedef	__int8				int8;
 typedef	__int16				int16;
 typedef	__int32				int32;
