@@ -11,12 +11,12 @@ int main() {
 	SseVal a{ {.d64 = {FLOAT_VAL, DOUBLE_VAL} } };
 	SseVal b{ {.d64 = {DOUBLE_VAL, FLOAT_VAL} } };
 
-	cout << "a:\t" << a.to_string<double64>(std::dec) << "\n";
-	cout << "b:\t" << b.to_string<double64>(std::dec) << "\n";
+	cout << "a:\t" << a.to_string<double64>() << "\n";
+	cout << "b:\t" << b.to_string<double64>() << "\n";
 	a.SseAdd(b, SseVal::addpd);
-	cout << "addpd [a],[b]:\t" << a.to_string<double64>(std::dec) << "\n";
+	cout << "addpd [a],[b]:\t" << a.to_string<double64>() << "\n";
 	a.SseAdd(b, SseVal::addsd);
-	cout << "addsd [a],[b]:\t" << a.to_string<double64>(std::dec) << "\n\n";
+	cout << "addsd [a],[b]:\t" << a.to_string<double64>() << "\n\n";
 
 	return 0;
 }

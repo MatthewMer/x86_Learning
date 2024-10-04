@@ -103,7 +103,7 @@ public:
 
 	template<typename T>
 		requires std::is_arithmetic_v<T>
-	string_t to_string(format_t fn) {
+	string_t to_string(format_t fn = std::dec) {
 		stringstream_t ss{};
 		fn(ss);
 
