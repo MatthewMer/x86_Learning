@@ -1,5 +1,8 @@
 .model flat,c
 
+.data
+
+
 .code
 
 OPTION LANGUAGE: syscall		; name mangling (no C symbols) -> Cpp compiler
@@ -389,6 +392,56 @@ SqrtOpTable:
 
 SqrtOpTableCount equ ($-SqrtOpTable) / size dword
 SseSqrt		endp
+
+; mangled name for Cpp compiler
+SseAnd equ <?SseAnd@SseVal@@QAEAAV1@W4AndOp@1@@Z>
+SseAnd		proc
+	push ebp
+	mov ebp,esp
+
+	mov eax,[ebp+8]			; load op enum
+	cmp eax,AndOpTableCount		; compare with table count
+	jae Finished				; jump if invalid
+
+	jmp [AndOpTable+eax*4]		; jump to opcode
+
+SseAndps:
+	movups xmm0,[ecx]
+	andps xmm1,xmm0
+	movups [ecx],xmm1
+	jmp Finished
+
+SseAndpd:
+	movupd xmm0,[ecx]
+	andpd xmm1,xmm0
+	movupd [ecx],xmm1
+	jmp Finished
+
+SseAndnps:
+	movups xmm0,[ecx]
+	andnps xmm1,xmm0
+	movups [ecx],xmm1
+	jmp Finished
+
+SseAndnpd:
+	movupd xmm0,[ecx]
+	andnpd xmm1,xmm0
+	movupd [ecx],xmm1
+	jmp Finished
+
+Finished:
+	mov eax,ecx
+
+	pop ebp
+	ret 4
+
+	align 4
+AndOpTable:
+	dword SseAndps, SseAndpd
+	dword SseAndnps, SseAndnpd
+
+AndOpTableCount equ ($-AndOpTable) / size dword
+SseAnd		endp
 
 OPTION LANGUAGE: C
 end
